@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "har2mcp"
+version = "0.1.0"
+description = "Record your browser, get an MCP server: turn any HAR capture into a working MCP server for your AI agent."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "hydope" }]
+keywords = ["mcp", "model-context-protocol", "har", "claude-code", "cursor", "codex", "ai-agents", "llm", "codegen"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Code Generators",
+]
+dependencies = ["mcp>=1.2"]
+
+[project.optional-dependencies]
+record = ["playwright>=1.40"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+har2mcp = "har2mcp.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/hydope/har2mcp"
+Issues = "https://github.com/hydope/har2mcp/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
